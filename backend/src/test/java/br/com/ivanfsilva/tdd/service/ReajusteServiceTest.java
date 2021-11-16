@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ReajusteServiceTest {
 
     @Test
-    public void reajusteDeveriaSerdeTresPocentoQuandoDesempehoForAdesejar() {
+    public void reajusteDeveriaSerdeTresPorcentoQuandoDesempehoForAdesejar() {
         ReajusteService service = new ReajusteService();
 
         Funcionario funcionario = new Funcionario( "José", LocalDate.now(), new BigDecimal( "1000" ) );
@@ -19,6 +19,28 @@ public class ReajusteServiceTest {
         service.concederReajuste( funcionario, Desempenho.A_DESEJAR );
 
         assertEquals( new BigDecimal( "1030.00" ), funcionario.getSalario() );
+    }
+
+    @Test
+    public void reajusteDeveriaSerdeQuinzePorcentoQuandoDesempehoForBom() {
+        ReajusteService service = new ReajusteService();
+
+        Funcionario funcionario = new Funcionario( "José", LocalDate.now(), new BigDecimal( "1000" ) );
+
+        service.concederReajuste( funcionario, Desempenho.BOM );
+
+        assertEquals( new BigDecimal( "1150.00" ), funcionario.getSalario() );
+    }
+
+    @Test
+    public void reajusteDeveriaSerdeVintePorcentoQuandoDesempehoForOtimo() {
+        ReajusteService service = new ReajusteService();
+
+        Funcionario funcionario = new Funcionario( "José", LocalDate.now(), new BigDecimal( "1000" ) );
+
+        service.concederReajuste( funcionario, Desempenho.OTIMO );
+
+        assertEquals( new BigDecimal( "1200.00" ), funcionario.getSalario() );
     }
 
 }
