@@ -30,6 +30,11 @@ Aplicativo para praticar testes de unidade com JUnit
 
 #### Reajuste baseado no desempenho anual
 
+Regra do Bônus:
+
+* O valor do bônus é 10% do salário do funcionário, limitado a 1.000.
+* Se um funcionário tiver o bônus calculado maior que 1.000, não deve receber bônus
+
 
 
 O sistema deve permitir que os funcionários recebam um reajuste salarial anual baseado em seu desempenho, obedecendo às seguintes regras:
